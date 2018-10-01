@@ -439,7 +439,10 @@ def main():
 
       _, logits_list = model_w(ims_var)
       print('logits_list:', logits_list)
-      print('criterion:', [criterion(logits, labels_var) for logits in logits_list])
+      for logits in logits_list:
+        print(logits.size(),end=' ')
+      print()
+      print('criterion:', len([criterion(logits, labels_var) for logits in logits_list]))
       loss = torch.sum(torch.cat([criterion(logits, labels_var) for logits in logits_list]))
 
       optimizer.zero_grad()
