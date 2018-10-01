@@ -435,6 +435,7 @@ def main():
       ims_var = Variable(TVT(torch.from_numpy(ims).float()))
       labels_var = Variable(TVT(torch.from_numpy(labels).long()))
       print(labels_var)
+      print('labels_var size:', labels_var.size())
 
       _, logits_list = model_w(ims_var)
       print('logits_list:', logits_list)
