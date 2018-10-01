@@ -13,7 +13,8 @@ def create_dataset(
     name='market1501',
     part='trainval',
     **kwargs):
-  assert name in ['market1501', 'cuhk03', 'duke', 'combined'], \
+  assert name in ['market1501', 'cuhk03', 'duke', 'msmt17', 'msmt17_suning55',
+                  'msmt17_duke', 'msmt17_market1501', 'combined'], \
     "Unsupported Dataset {}".format(name)
 
   assert part in ['trainval', 'train', 'val', 'test'], \
@@ -35,7 +36,19 @@ def create_dataset(
   elif name == 'duke':
     im_dir = ospeu('~/Dataset/duke/images')
     partition_file = ospeu('~/Dataset/duke/partitions.pkl')
-
+  
+  elif name == 'msmt17_suning55':
+    im_dir = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_suning55/images')
+    partition_file = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_suning55/partitions.pkl')
+  
+  elif name == 'msmt17_duke':
+    im_dir = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_duke/images')
+    partition_file = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_duke/partitions.pkl')
+  
+  elif name == 'msmt17_market1501':
+    im_dir = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_market1501/images')
+    partition_file = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_market1501/partitions.pkl')
+  
   elif name == 'combined':
     assert part in ['trainval'], \
       "Only trainval part of the combined dataset is available now."

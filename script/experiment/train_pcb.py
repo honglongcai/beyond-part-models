@@ -40,7 +40,8 @@ class Config(object):
     parser.add_argument('-r', '--run', type=int, default=1)
     parser.add_argument('--set_seed', type=str2bool, default=False)
     parser.add_argument('--dataset', type=str, default='market1501',
-                        choices=['market1501', 'cuhk03', 'duke', 'combined'])
+                        choices=['market1501', 'cuhk03', 'duke', 'msmt17', 'msmt17_suning55',
+                                 'msmt17_duke', 'msmt17_market1501', 'combined'])
     parser.add_argument('--trainset_part', type=str, default='trainval',
                         choices=['trainval', 'train'])
 
