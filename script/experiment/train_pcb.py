@@ -436,6 +436,7 @@ def main():
       labels_var = Variable(TVT(torch.from_numpy(labels).long()))
 
       _, logits_list = model_w(ims_var)
+      print('logits_list:', logits_list)
       loss = torch.sum(
         torch.cat([criterion(logits, labels_var) for logits in logits_list]))
 
