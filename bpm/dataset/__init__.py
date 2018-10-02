@@ -34,8 +34,8 @@ def create_dataset(
     partition_file = ospeu(ospj('~/Dataset/cuhk03', im_type, 'partitions.pkl'))
 
   elif name == 'duke':
-    im_dir = ospeu('~/Dataset/duke/images')
-    partition_file = ospeu('~/Dataset/duke/partitions.pkl')
+    im_dir = ospeu('/home/honglongcai/Github/beyond-part-models/data/duke/images')
+    partition_file = ospeu('/home/honglongcai/Github/beyond-part-models/data/duke/partitions.pkl')
   
   elif name == 'msmt17_suning55':
     im_dir = ospeu('/home/honglongcai/Github/beyond-part-models/data/msmt17_suning55/images')
