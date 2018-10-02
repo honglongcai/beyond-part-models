@@ -338,7 +338,7 @@ def main():
   # Criteria and Optimizers   #
   #############################
 
-  criterion = torch.nn.CrossEntropyLoss()
+  criterion = torch.nn.CrossEntropyLoss(reduce=False)
 
   # To finetune from ImageNet weights
   finetuned_params = list(model.base.parameters())
@@ -443,8 +443,8 @@ def main():
         print(logits.size(),end=' ')
       print()
       print('criterion:', len([criterion(logits, labels_var) for logits in logits_list]))
-      #loss = torch.sum(torch.cat([criterion(logits, labels_var) for logits in logits_list]))
-      loss = torch.sum(torch.FloatTensor([criterion(logits, labels_var) for logits in logits_list]))
+      loss = torch.sum(torch.cat([criterion(logits, labels_var) for logits in logits_list]))
+      #loss = torch.sum(torch.FloatTensor([criterion(logits, labels_var) for logits in logits_list]))
       optimizer.zero_grad()
       loss.backward()
       optimizer.step()
