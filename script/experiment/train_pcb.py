@@ -434,16 +434,16 @@ def main():
 
       ims_var = Variable(TVT(torch.from_numpy(ims).float()))
       labels_var = Variable(TVT(torch.from_numpy(labels).long()))
-      print(labels_var)
-      print('labels_var size:', labels_var.size())
+      #print(labels_var)
+      #print('labels_var size:', labels_var.size())
 
       _, logits_list = model_w(ims_var)
-      print('logits_list:', logits_list)
-      for logits in logits_list:
-        print(logits.size(),end=' ')
-      print()
-      hehe = torch.cat([criterion(logits, labels_var) for logits in logits_list])
-      print('criterion:', hehe.size())
+      #print('logits_list:', logits_list)
+      #for logits in logits_list:
+        #print(logits.size(),end=' ')
+      #print()
+      #hehe = torch.cat([criterion(logits, labels_var) for logits in logits_list])
+      #print('criterion:', hehe.size())
       loss = torch.sum(torch.cat([criterion(logits, labels_var) for logits in logits_list]))
       #loss = torch.sum(torch.FloatTensor([criterion(logits, labels_var) for logits in logits_list]))
       optimizer.zero_grad()
