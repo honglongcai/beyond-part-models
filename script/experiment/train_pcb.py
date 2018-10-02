@@ -338,7 +338,7 @@ def main():
   # Criteria and Optimizers   #
   #############################
 
-  criterion = torch.nn.CrossEntropyLoss(reduce=False)
+  criterion = torch.nn.CrossEntropyLoss()
 
   # To finetune from ImageNet weights
   finetuned_params = list(model.base.parameters())
