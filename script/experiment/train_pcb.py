@@ -232,6 +232,7 @@ class Config(object):
       self.exp_dir = osp.join(
         'exp/train',
         '{}'.format(self.dataset),
+        str(self.staircase_decay_at_epochs),
         'run{}'.format(self.run),
       )
     else:
@@ -499,7 +500,8 @@ def main():
 
     # save ckpt
     if cfg.log_to_file:
-      save_ckpt(modules_optims, ep + 1, 0, cfg.ckpt_file)
+      #save_ckpt(modules_optims, ep + 1, 0, cfg.ckpt_file)
+      torch.save(model.state_dict(), cfg.ckpt_file)
 
   ########
   # Test #
