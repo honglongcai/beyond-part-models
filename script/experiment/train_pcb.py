@@ -276,6 +276,7 @@ class ExtractFeature(object):
     print('feat_size:', feat[0].shape)
     feat = np.concatenate(feat, axis=1)
     print('feat_shape:', feat.shape)
+    print('feat_norm:', np.linalg.norm(feat, axis=1))
 
     # Restore the model to its old train/eval mode.
     self.model.train(old_train_eval_model)
