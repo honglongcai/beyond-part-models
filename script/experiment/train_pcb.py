@@ -270,7 +270,7 @@ class ExtractFeature(object):
       local_feat_list, logits_list = self.model(ims)
     except:
       local_feat_list = self.model(ims)
-    print('local_feat_list_size:', local_feat_list.size())
+    print('local_feat_list_size:', local_feat_list.shape)
     feat = [lf.data.cpu().numpy() for lf in local_feat_list]
     print('feat_size:', feat.shape)
     feat = np.concatenate(feat, axis=1)
