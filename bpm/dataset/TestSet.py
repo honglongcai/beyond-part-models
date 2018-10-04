@@ -125,13 +125,13 @@ class TestSet(Dataset):
     im_names = np.hstack(im_names)
     marks = np.hstack(marks)
     if normalize_feat:
-      print('before normalize', feat)
-      print('before norm', np.linalg.norm(feat, axis=1))
-      print('before shape', feat.shape)
+      #print('before normalize', feat)
+      #print('before norm', np.linalg.norm(feat, axis=1))
+      #print('before shape', feat.shape)
       feat = normalize(feat, axis=1)
-      print('after normalize', feat)
-      print('after norm', np.linalg.norm(feat, axis=1))
-      print('after shape', feat.shape)
+      #print('after normalize', feat)
+      #print('after norm', np.linalg.norm(feat, axis=1))
+      #print('after shape', feat.shape)
     return feat, ids, cams, im_names, marks
 
   def eval(

@@ -270,13 +270,13 @@ class ExtractFeature(object):
       local_feat_list, logits_list = self.model(ims)
     except:
       local_feat_list = self.model(ims)
-    print('local_feat_list_size:', len(local_feat_list))
+    #print('local_feat_list_size:', len(local_feat_list))
     feat = [lf.data.cpu().numpy() for lf in local_feat_list]
-    print('feat_size:', len(feat))
-    print('feat_size:', feat[0].shape)
+    #print('feat_size:', len(feat))
+    #print('feat_size:', feat[0].shape)
     feat = np.concatenate(feat, axis=1)
-    print('feat_shape:', feat.shape)
-    print('feat_norm:', np.linalg.norm(feat, axis=1))
+    #print('feat_shape:', feat.shape)
+    #print('feat_norm:', np.linalg.norm(feat, axis=1))
 
     # Restore the model to its old train/eval mode.
     self.model.train(old_train_eval_model)
