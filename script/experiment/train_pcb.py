@@ -378,13 +378,15 @@ def main():
 
   def test(load_model_weight=False):
     if load_model_weight:
+      '''
       if cfg.model_weight_file != '':
         map_location = (lambda storage, loc: storage)
         sd = torch.load(cfg.model_weight_file, map_location=map_location)
         load_state_dict(model, sd)
         print('Loaded model weights from {}'.format(cfg.model_weight_file))
       else:
-        load_ckpt(modules_optims, cfg.ckpt_file)
+      '''
+      load_ckpt(modules_optims, cfg.ckpt_file)
 
     for test_set, name in zip(test_sets, test_set_names):
       test_set.set_feat_func(ExtractFeature(model_w, TVT))
