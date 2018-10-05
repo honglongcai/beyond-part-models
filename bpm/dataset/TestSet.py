@@ -96,7 +96,9 @@ class TestSet(Dataset):
     last_time = time.time()
     while not done:
       ims_, ids_, cams_, im_names_, marks_, done = self.next_batch()
+      print('img names:', im_names_)
       feat_ = self.extract_feat_func(ims_)
+      print('feat:', feat_)
       feat.append(feat_)
       ids.append(ids_)
       cams.append(cams_)
