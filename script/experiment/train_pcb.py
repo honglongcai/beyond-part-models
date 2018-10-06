@@ -228,11 +228,18 @@ class Config(object):
     self.log_to_file = args.log_to_file
 
     # The root dir of logs.
+    sdat = 'decay_at_'
+    for da in self.staircase_decay_at_epochs:
+      sdat = sdat + str(da) + '_'
     if args.exp_dir == '':
       self.exp_dir = osp.join(
         'exp/train',
         '{}'.format(self.dataset),
-        str(self.staircase_decay_at_epochs),
+        'local_conv_out_channels_' + str(self.local_conv_out_channels)
+        + '_' + sdat + 'total_epochs_' + str(self.total_epochs) + '_'
+        + 'decay_factor_' + str(self.staircase_decay_multiply_factor) + '_'
+        + 'finetuned_lr_' + str(self.finetuned_params_lr) + '_'
+        + 'new_lr_' + str(self.new_params_lr),
         'run{}'.format(self.run),
       )
     else:
